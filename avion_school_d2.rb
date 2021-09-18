@@ -45,12 +45,10 @@ puts "The new array is #{new_arr}"
 
 puts "-----Coding Exercise-----"
 numb = gets.chomp.to_f
-def is_square(numb)
-  # return false if x.negative?
-  if numb ** 2 % 1 == 0  
-    puts "#{numb} is a perfect square!" 
-  else
-    puts "#{numb} is not a perfect square"
+def perfect_square?(n)
+  (0..n).each do |guess|
+    return true if guess * guess == n
   end
+  return false
 end
-is_square(numb)
+perfect_square?(numb)
