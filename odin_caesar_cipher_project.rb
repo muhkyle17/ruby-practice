@@ -24,19 +24,20 @@
 # puts message
 
 def caesar_cipher(text, shift)
-  # Convert the passed in string into a number corresponding to the alphabet
   # "A" = 65, "Z" = 90, a = "91", z = "122"
-
+  
   non_converted_text = []
   converted_text = []
+  # Convert the string into its ordidance integer
   text.each_char do |ch| 
     converted_text.push(ch.ord)
     non_converted_text.push(ch.ord)
   end
-
+  
   p converted_text
   p non_converted_text
-
+  
+  # Convert the passed in string into a number corresponding to the alphabet
   converted_text.map! do |num| 
     if num >= 65 && num <= 90
       num - 64
@@ -47,18 +48,18 @@ def caesar_cipher(text, shift)
 
   p converted_text
 
-  # # Add each of the converted string by the number passed into the method
+  # Add each of the converted string by the number passed into the method
 
   converted_text.map! { |num| num + shift }
 
   p converted_text
 
+  # Check if number letter is greater than 26 to make it start from 1 again 
+  # Check if number letter t == 0 to add 1
   converted_text.map! do |num|
     if num > 26
       num - 26
-    elsif num == 0
-      num + 1
-    elsif num < 26
+    elsif num <= 26
       num
     end
   end
@@ -68,27 +69,30 @@ def caesar_cipher(text, shift)
 
   # Convert the array back into its corresponding string
   # Remember to loop from 26 back to 1 and keep the same case 
-  # if string.upcase = true --> + 96 else + 64
 
-  # converted_text.map! { }
-
-  converted_text.map! do |num|
-    if text == text.upcase
-      num + 64
-    elsif text != text.upcase 
-      num + 96
-    end
-  end
-
+  converted_text.map! { |num| (num + 96).chr }
   p converted_text
-  p non_converted_text
 
-  # puts converted_text.join("")
+  # converted_text.map! do |num|
+  #   if text == text.upcase
+  #     num + 64
+  #   elsif text != text.upcase 
+  #     num + 96
+  #   end
+  # end
+
+  # p converted_text.map { |txt| text.match([A-Za-z] ) }
+
+
+  # p converted_text
+  # p non_converted_text
+
+  puts converted_text.join("")
 
 
 end
 
-caesar_cipher("zzzzz", 6)
+caesar_cipher("HELLO THERE", 6)
 
 
  # converted_string.map! { |num| (num + 96).chr }
