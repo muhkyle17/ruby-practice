@@ -223,6 +223,7 @@ sparky = GoodDog.new('Sparky', '12 inches', '10 lbs')
 p sparky.what_is_self
 =end
 
+=begin
 class Person
   attr_accessor :name
 
@@ -234,3 +235,5 @@ end
 
 bob = Person.new("Steve")
 puts bob.name = "Bob"
+=end
+
